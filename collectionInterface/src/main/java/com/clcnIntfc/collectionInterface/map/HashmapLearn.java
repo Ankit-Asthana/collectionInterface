@@ -1,5 +1,7 @@
 package com.clcnIntfc.collectionInterface.map;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -59,6 +61,34 @@ public class HashmapLearn {
             System.out.println("Person Obj : "+entry.getKey()+" ,Occupation : "+entry.getValue());
         }
 
+        /*
+        Some important things
+         */
+
+        //if you want that if something is not in the hashmap, then it will return something, like 0
+        System.out.println();
+        HashMap<String, Integer> extraHashMap = new HashMap<>();
+        extraHashMap.put("Ram", 1);
+        extraHashMap.put("Shyam", 2);
+        extraHashMap.put("Vayam", 3);
+
+        Integer available = extraHashMap.getOrDefault("Rohan", 0); //return 0 if key not present in the hashmap
+        if(available == 0)
+        {
+            //logic for not getting the key in hashmap
+            System.out.println("Rohan not found in the Hashmap");
+        }
+
+        // want to put any entry in the hashmap if the given key is not available
+        extraHashMap.putIfAbsent("Saurabh", 4);
+
+        System.out.println("extraHashMap");
+        System.out.println();
+        Set<Map.Entry<String, Integer>> entriesSet = extraHashMap.entrySet();
+        for(Map.Entry<String, Integer> entries : entriesSet)
+        {
+            System.out.println(entries.getKey() +" : "+ entries.getValue());
+        }
     }
 }
 
