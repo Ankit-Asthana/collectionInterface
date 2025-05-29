@@ -15,8 +15,10 @@ public class IdentityHashMapLearn {
         idHsmp.put(new String("Abc"), 2);
         idHsmp.put(new String("Abc"), 3);
 
-        //here 3 entries will be put coz. of the memory reference of the key, not the values of keys.
-        //coz the memory address of every new String("Abc") will be different. so it will get stored.
+        /*here 3 entries will be put for same Key, coz. of the memory reference of the key, not the values of keys.
+            Uses == instead .equals (opposite of HashMap that used .equals to compare the value of Keys)
+            coz the memory address of every new String("Abc") will be different. so it will get stored.
+         */
         for(Map.Entry<String, Integer> entry : idHsmp.entrySet())
         {
             System.out.println(entry.getKey() +" : "+ entry.getValue());
