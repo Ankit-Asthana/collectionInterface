@@ -102,6 +102,13 @@ public class HashmapLearn {
 
         We can customize these methods in our class to generate the hashcode according to our requirement
         also to check equality between the objects on some custom condition (like same ID, name etc.)
+
+        To sort the HashMap, the Element class should have to extends the Comparator or Comparable interface and then write
+        the sorting logic in that Element class.
+
+        Here it is the Person class which is the Key of the HashMap.
+        HashMap<Person, String> personMap = new HashMap<>();
+
  */
 
 class Person {
