@@ -8,6 +8,10 @@ import java.util.random.RandomGenerator;
 public class SortedMapLearn {
 
     /*
+    MAP ==> Sorted == SortedMap (i.e TreeMap)
+
+    It internally uses Red-Black tree structure to store the elements instead of using Array like HashMap
+
     The sorted map is an interface, and TreeMap implements it.
     By default, the Map doesn't have the sorting order, but it does.
     So we can sort the Map using this TreeMap<>() on the basis of "keys"
@@ -91,8 +95,41 @@ public class SortedMapLearn {
         for (int num : set) {
             sb.append(num);
         }
+        System.out.println();
+
 
         String result = sb.toString();
         System.out.println("Concatenated descending unique numbers: " + result);
+
+
+        Map<Integer, String> syncOrNot = new TreeMap<>();
+
+        Thread th1 = new Thread(
+                () -> {
+                    for (int i = 0; i < 1000; i++) {
+                        syncOrNot.put(i, "SyncThread1");
+                    }
+                }
+        );
+
+        Thread th2 = new Thread(
+                () -> {
+                    for (int i = 1000; i < 2000; i++) {
+                        syncOrNot.put(i, "SyncThread1");
+                    }
+                }
+        );
+
+        th1.start();
+        th2.start();
+
+        try {
+            th1.join();
+            th2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Size of TreeMap after using Synchronized Threads is " +syncOrNot.size());
     }
 }

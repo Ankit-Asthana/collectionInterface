@@ -7,6 +7,8 @@ public class IdentityHashMapLearn {
 
     /*
     Same Key multiple entries
+
+    MAP ==> Multiple same keys == IdentityHashMap
      */
 
     public static void main(String[] args) {

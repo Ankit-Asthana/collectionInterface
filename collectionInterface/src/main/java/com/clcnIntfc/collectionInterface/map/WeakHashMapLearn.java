@@ -6,6 +6,8 @@ import java.util.WeakHashMap;
 public class WeakHashMapLearn {
 
     /*
+    MAP ==> Entry of Keys not used for a long time gets deleted by Garbage collector == WeakHashMap
+
     It is used to garbage collect the Keys of hashmap which are not strong reference
     ex - if key is string literal (in String constant pool, then it is strong key and will not be garbage collected. (String abc = "Abc";)
         If they are not string literal then they can be garbage collected (String abc = new String("Abc");)

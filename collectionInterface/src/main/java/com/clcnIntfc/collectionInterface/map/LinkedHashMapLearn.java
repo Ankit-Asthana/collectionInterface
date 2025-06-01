@@ -8,6 +8,9 @@ public class LinkedHashMapLearn {
     public static void main(String[] args) {
 
         /*
+
+        MAP ==> Insertion order maintained == LinkedHashMap
+
         The very first difference between the HashMap and LinkedHashMap is that, in LHM, the insertion order is maintained making it bit slow coz it takes more memory to store
         And in the HashMap, the insertion order is not maintained.
 

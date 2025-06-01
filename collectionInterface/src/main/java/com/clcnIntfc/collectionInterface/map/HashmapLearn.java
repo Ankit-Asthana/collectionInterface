@@ -11,7 +11,9 @@ public class HashmapLearn {
     public static void main(String[] args) {
 
         /*
-        If the collison happens at an index then a "linked list" will get created at that index in bucket.
+        HashMap internally uses Array
+
+        If the collision happens at an index then a "linked list" will get created at that index in bucket.
         But if the collision happens more than 8 times at one index, then LinkedList will get converted in the
         "Red black tree" which have the self-balancing technique after every addition and deletion
 

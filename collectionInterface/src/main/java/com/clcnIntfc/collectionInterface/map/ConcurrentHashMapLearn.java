@@ -8,6 +8,9 @@ public class ConcurrentHashMapLearn {
     public static void main(String[] args) {
 
         /*
+
+        MAP ==> Synchronize == ConcurrentHashMap
+
         Used to achive concurrency
         It is thread safe, means all the functions are asynchronous. So one thread can access that at a time
 
