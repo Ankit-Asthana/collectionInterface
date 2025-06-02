@@ -13,6 +13,13 @@ public class HashmapLearn {
         /*
         HashMap internally uses Array
 
+        🔍 So How Does HashMap Avoid Duplicates?
+        Here's the high-level process:
+            Compute the hashCode() of the key
+            Find the correct bucket using hashing
+            If the bucket has no key with equals() match, it inserts the key-value pair
+            If the key already exists (same hash and equals() returns true), it updates the value (no duplicate keys allowed)
+
         If the collision happens at an index then a "linked list" will get created at that index in bucket.
         But if the collision happens more than 8 times at one index, then LinkedList will get converted in the
         "Red black tree" which have the self-balancing technique after every addition and deletion

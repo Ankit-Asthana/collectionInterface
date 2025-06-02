@@ -15,6 +15,11 @@ public class ConcurrentSkipListMapLearn {
 
         Used when you want synchronized Map with sorted order
 
+        🔁 Duplicate Key Handling
+        Like TreeMap, it uses:
+            compareTo() or a provided Comparator to order keys
+            Two keys are considered equal if comparison returns 0
+
     SkipList working:
         Data should be Sorted
         Works as a multiple layer LinkedList, for fast access

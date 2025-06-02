@@ -12,6 +12,20 @@ public class SortedMapLearn {
 
     It internally uses Red-Black tree structure to store the elements instead of using Array like HashMap
 
+    🌳 How TreeMap Prevents Duplicate Keys
+        Unlike HashMap, which uses hashCode() and equals(), a TreeMap:
+        ✅ Uses:
+            compareTo() (from Comparable)
+            or a custom Comparator you provide
+
+        TreeMap<String, Integer> map = new TreeMap<>();
+        map.put("apple", 1);
+        map.put("banana", 2);
+        map.put("apple", 3); // Replaces value for "apple"
+        Coz.
+            String implements Comparable
+            apple.compareTo(apple) returns 0, so it's treated as a duplicate
+
     The sorted map is an interface, and TreeMap implements it.
     By default, the Map doesn't have the sorting order, but it does.
     So we can sort the Map using this TreeMap<>() on the basis of "keys"

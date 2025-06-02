@@ -13,6 +13,11 @@ public class ConcurrentHashMapLearn {
 
         Used to achive concurrency
         It is thread safe, means all the functions are asynchronous. So one thread can access that at a time
+        Internally uses Array for storing elements like HashMap
+
+        ✅ For duplicate key handling it uses:
+            hashCode() to find a bucket
+            equals() to check for key equality
 
         In Java 7, the ConcurrentHashMap works as the Segment based locking
         By default the ConcurrentHashMap breaks down into 16 segments of HashMap

@@ -19,6 +19,12 @@ public class LinkedHashMapLearn {
         To be used when you need to maintain the insertion order
 
         Complexity will be same as HashMap, only the memory it takes more than HashMap
+
+        🔁 Duplicate Key Handling in LinkedHashMap
+        ✅ Same as HashMap:
+            LinkedHashMap does not allow duplicate keys, and uses:
+                hashCode()
+                equals()
          */
 
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
