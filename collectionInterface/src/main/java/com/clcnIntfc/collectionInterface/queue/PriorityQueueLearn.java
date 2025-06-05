@@ -20,7 +20,7 @@ public class PriorityQueueLearn {
             Internal working of PriorityQueue
                 Implements as a Min-heap by default
                     Min-heap work: The both child elements must be greater than the parent.
-                    
+
                 When polled/removed the head, then only the next high priority element will come on head
          */
 

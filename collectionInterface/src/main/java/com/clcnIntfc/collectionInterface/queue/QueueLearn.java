@@ -8,12 +8,14 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class QueueLearn {
     /*
-    Queue is an interface in Java so we can't instanciate it. We should instanciate it's implementation class.
+    Queue is an interface in Java so we can't implement it. We should implement its implementation class.
     Implementation classes
         1. LinkedList
         2. PriorityQueue
         3. BlockingQueue
         4. ArrayBlockingQueue
+
+     offer(E e), poll(E e) and peek() will not give Exception, they will return null if not worked
 
     A data structure that runs on First in First out principle
     Basic Functionality
