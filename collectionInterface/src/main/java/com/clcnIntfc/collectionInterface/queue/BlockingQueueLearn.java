@@ -8,6 +8,8 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueLearn {
     public static void main(String[] args) {
         /*
+        Every BlockingQueue is mainly Used for Producer-Consumer problem
+
         In standard queue that we learnt earlier, the operations takes place immediately. It doesn't wait
 
         Thread safe Queue, waits for queue to become empty/non-empty when insertion/removal done for Exception case like:

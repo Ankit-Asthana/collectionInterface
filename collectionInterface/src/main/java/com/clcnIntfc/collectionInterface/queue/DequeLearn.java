@@ -1,13 +1,18 @@
 package com.clcnIntfc.collectionInterface.queue;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class DequeLearn {
     public static void main(String[] args) {
         /*
         Double ended queue
+        Not Thread safe
         Addition and removal from both ends of Queue
         Two implementation class
             ArrayDeque -> Internally uses Circular Array, with double-sided head and tail. Increases by double when full
@@ -84,7 +89,6 @@ public class DequeLearn {
         integerDeque2.offerFirst(2);
         integerDeque2.offerLast(4);
 
-
         ((LinkedList<Integer>) integerDeque2).add(2,3); //to insert element in middle
         ((LinkedList<Integer>) integerDeque2).add(4,8); //to insert element in middle
 
@@ -95,6 +99,10 @@ public class DequeLearn {
         ((LinkedList<Integer>) integerDeque2).remove(3); //to remove element from index 3
 
         System.out.println(integerDeque2);
+        System.out.println();
+
+//        BlockingQueue<Integer> linkedBlockingDeque = new LinkedBlockingDeque<>();
+//        linkedBlockingDeque.put(1);
 
     }
 }
