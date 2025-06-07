@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHashMapLearn {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /*
 
@@ -15,6 +15,40 @@ public class ConcurrentHashMapLearn {
         It is thread safe, means all the functions are asynchronous. So one thread can access that at a time
         Internally uses Array for storing elements like HashMap
 
+        For Concurrency(updating HashMap from n no. of threads simultaneously), it uses CompareAndSwap method
+        CompareAndSwap()
+              What happens internally
+                    1️⃣ Both threads T1 & T2 hash key 1 → go to bucket i
+
+                    2️⃣ The bucket i is currently empty → table[i] == null
+
+                    3️⃣ Both threads prepare a Node to insert
+
+                    4️⃣ Both try:
+                    CAS table[i] from null → Node
+
+                    5️⃣ Only one CAS succeeds → the other thread retries → sees table[i] already filled → updates existing node (with synchronized block for that bucket).
+        */
+            ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<>();
+
+            Thread t1 = new Thread(() -> {
+                map.put(1, "One");
+            });
+
+            Thread t2 = new Thread(() -> {
+                map.put(1, "Uno");
+            });
+
+            t1.start();
+            t2.start();
+
+            t1.join();
+            t2.join();
+
+            System.out.println(map);
+            System.out.println();
+
+        /*
         ✅ For duplicate key handling it uses:
             hashCode() to find a bucket
             equals() to check for key equality
@@ -29,26 +63,26 @@ public class ConcurrentHashMapLearn {
         The resizing will not be done like double when the size increases the default size, it will increase as much we put.
          */
         ConcurrentHashMap<Integer, String> cnHsmp = new ConcurrentHashMap<>();
-        Thread t1 = new Thread(
+        Thread t3 = new Thread(
                 () ->  {
                     for(int i = 0; i < 1000; i++) {
                     cnHsmp.put(i, "Thread1");
                 }
         });
 
-        Thread t2 = new Thread(
+        Thread t4 = new Thread(
                 () -> {
                     for (int i = 1000; i < 2000; i++) {
                         cnHsmp.put(i, "Thread2");
                     }
                 });
 
-        t1.start();
-        t2.start();
+        t3.start();
+        t4.start();
 
         try {
-            t1.join();
-            t2.join();
+            t3.join();
+            t4.join();
         }
         catch (Exception e) {
             System.out.println(e.getCause());
@@ -63,7 +97,7 @@ public class ConcurrentHashMapLearn {
          */
 
         HashMap<Integer, String> hsmp = new HashMap<>();
-        Thread t3 = new Thread(
+        Thread t5 = new Thread(
                 () -> {
                     for (int i = 0; i < 1000; i++) {
                         hsmp.put(i, "Thread2");
@@ -71,7 +105,7 @@ public class ConcurrentHashMapLearn {
                 }
         );
 
-        Thread t4 = new Thread(
+        Thread t6 = new Thread(
                 () -> {
                     for (int i = 1000; i < 2000; i++) {
                         hsmp.put(i, "Thread2");
@@ -79,12 +113,12 @@ public class ConcurrentHashMapLearn {
                 }
         );
 
-        t3.start();
-        t4.start();
+        t5.start();
+        t6.start();
 
         try {
-            t3.join();
-            t4.join();
+            t5.join();
+            t6.join();
         }
         catch (Exception e) {
             System.out.println(e.getCause());

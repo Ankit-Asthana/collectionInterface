@@ -10,10 +10,19 @@ public class QueueLearn {
     /*
     Queue is an interface in Java so we can't implement it. We should implement its implementation class.
     Implementation classes
+    Not Thread Safe (no built-in lock)
         1. LinkedList
         2. PriorityQueue
-        3. BlockingQueue
-        4. ArrayBlockingQueue
+        3. Deque
+        4. ArrayDeque
+
+    Thread safe, (lock on put() and take() functions of queue, so only one thread can modify the queue at a time)
+        5. BlockingQueue
+        6. ArrayBlockingQueue
+        7. LinkedBlockingQueue
+        8. PriorityBlockingQueue
+
+    Thread safe with concurrency
 
      offer(E e), poll(E e) and peek() will not give Exception, they will return null if not worked
 

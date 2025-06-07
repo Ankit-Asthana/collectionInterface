@@ -9,6 +9,7 @@ public class BlockingQueueLearn {
     public static void main(String[] args) {
         /*
         Every BlockingQueue is mainly Used for Producer-Consumer problem
+        Mainly blocking queue are not thread safe.
 
         In standard queue that we learnt earlier, the operations takes place immediately. It doesn't wait
 
