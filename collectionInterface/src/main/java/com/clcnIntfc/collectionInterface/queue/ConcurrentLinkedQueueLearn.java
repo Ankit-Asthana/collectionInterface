@@ -22,7 +22,7 @@ public class ConcurrentLinkedQueueLearn {
 
             3️⃣ Both try to CAS tail.next from null → Node B / Node C (coz we are inserting, and insertion comes from rear)
                 👉 Only one thread's CAS succeeds first (say producer → tail.next → Node B)
-                👉 The other thread (producer2) sees failure → retries with updated tail.
+                👉 The other thread (producer2) sees failure → retries with updated tail after Node B
 
             4️⃣ Both threads CAS tail pointer itself to point to latest node.
          */
