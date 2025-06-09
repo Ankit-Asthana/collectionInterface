@@ -15,6 +15,12 @@ public class ConsumerAndSupplier {
     /*
     Consumer consumes -> Used in print statement
     Supplier supplies -> Can be used where you don't want any return, like creating connection with DB
+
+    Predicate -> test(T)
+    Function -> apply(T)
+    Consumer -> sout()
+    Supplier -> get()
+
      */
 
     public static void main(String[] args) {
