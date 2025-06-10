@@ -1,5 +1,6 @@
 package com.clcnIntfc.collectionInterface.java8Features;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -36,5 +37,23 @@ public class StreamsIntermediateOperation {
 
         //6. skip
         System.out.println(Stream.iterate(1, x -> x + 1).skip(10).limit(100).count());
+        System.out.println();
+
+        //7. flatmap
+        //      Used to handle stream of collections, lists or arrays, where each element itself a collection
+        //      Flattened nested structure(e.g list within list) so that they can be processed as a single sequence of elements
+        //      Transform and flatten element at same time
+        List<List<Integer>> intlist = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(4, 5, 6),
+                Arrays.asList(7, 8, 9)
+        );
+
+        System.out.println(intlist.get(1).get(1));   //5 will be printed
+        System.out.println();
+
+        List<Integer> flatmapPlusOne = intlist.stream().flatMap(x -> x.stream()).map(x -> x + 1).toList();
+        System.out.println("Flatmap created of multiple arraylist");
+        System.out.println(flatmapPlusOne);
     }
 }

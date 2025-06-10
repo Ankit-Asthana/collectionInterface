@@ -1,9 +1,11 @@
 package com.clcnIntfc.collectionInterface.java8Features;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamTerminalOps {
 
@@ -39,6 +41,11 @@ public class StreamTerminalOps {
 
         boolean b2 = intVal.stream().noneMatch(x -> x % 2 == 0);    //none of the element matches the condition
         System.out.println(b2);
+        System.out.println();
+
+        //6. min/max
+        System.out.println("max: "+ Stream.of(1, 86, 31).max((x, y) -> x - y).get());  //ascending order max value
+        System.out.println("min: "+ Stream.of(3, 91, 43, 7).min((x, y) -> x - y));
 
 
         //Example 1 -> Names of length smaller than 3
